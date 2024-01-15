@@ -1,0 +1,186 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0": {},
+    "net8.0/browser-wasm": {}
+  },
+  "libraries": {},
+  "projectFileDependencyGroups": {
+    "net8.0": [
+      "Microsoft.AspNetCore.Components.WebAssembly >= 8.0.1",
+      "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 8.0.1",
+      "Microsoft.NET.ILLink.Tasks >= 8.0.1",
+      "Microsoft.NET.Sdk.WebAssembly.Pack >= 8.0.1"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\gusha\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\gusha\\SomehowClever\\SomehowClever.csproj",
+      "projectName": "SomehowClever",
+      "projectPath": "C:\\Users\\gusha\\SomehowClever\\SomehowClever.csproj",
+      "packagesPath": "C:\\Users\\gusha\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\gusha\\SomehowClever\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\gusha\\AppData\\Roaming\\NuGet\\NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0"
+      ],
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net8.0": {
+        "targetAlias": "net8.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.WebAssembly": {
+            "target": "Package",
+            "version": "[8.0.1, )"
+          },
+          "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[8.0.1, )"
+          },
+          "Microsoft.NET.ILLink.Tasks": {
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[8.0.1, )",
+            "autoReferenced": true
+          },
+          "Microsoft.NET.Sdk.WebAssembly.Pack": {
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[8.0.1, )",
+            "autoReferenced": true
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
+            "version": "[8.0.1, 8.0.1]"
+          }
+        ],
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+      }
+    },
+    "runtimes": {
+      "browser-wasm": {
+        "#import": []
+      }
+    }
+  },
+  "logs": [
+    {
+      "code": "NU1100",
+      "level": "Error",
+      "message": "Unable to resolve 'Microsoft.AspNetCore.Components.WebAssembly (>= 8.0.1)' for 'net8.0'.",
+      "libraryId": "Microsoft.AspNetCore.Components.WebAssembly",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1100",
+      "level": "Error",
+      "message": "Unable to resolve 'Microsoft.AspNetCore.Components.WebAssembly.DevServer (>= 8.0.1)' for 'net8.0'.",
+      "libraryId": "Microsoft.AspNetCore.Components.WebAssembly.DevServer",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1100",
+      "level": "Error",
+      "message": "Unable to resolve 'Microsoft.NET.ILLink.Tasks (>= 8.0.1)' for 'net8.0'.",
+      "libraryId": "Microsoft.NET.ILLink.Tasks",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1100",
+      "level": "Error",
+      "message": "Unable to resolve 'Microsoft.NET.Sdk.WebAssembly.Pack (>= 8.0.1)' for 'net8.0'.",
+      "libraryId": "Microsoft.NET.Sdk.WebAssembly.Pack",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1100",
+      "level": "Error",
+      "message": "Unable to resolve 'Microsoft.AspNetCore.Components.WebAssembly (>= 8.0.1)' for 'net8.0/browser-wasm'.",
+      "libraryId": "Microsoft.AspNetCore.Components.WebAssembly",
+      "targetGraphs": [
+        "net8.0/browser-wasm"
+      ]
+    },
+    {
+      "code": "NU1100",
+      "level": "Error",
+      "message": "Unable to resolve 'Microsoft.AspNetCore.Components.WebAssembly.DevServer (>= 8.0.1)' for 'net8.0/browser-wasm'.",
+      "libraryId": "Microsoft.AspNetCore.Components.WebAssembly.DevServer",
+      "targetGraphs": [
+        "net8.0/browser-wasm"
+      ]
+    },
+    {
+      "code": "NU1100",
+      "level": "Error",
+      "message": "Unable to resolve 'Microsoft.NET.ILLink.Tasks (>= 8.0.1)' for 'net8.0/browser-wasm'.",
+      "libraryId": "Microsoft.NET.ILLink.Tasks",
+      "targetGraphs": [
+        "net8.0/browser-wasm"
+      ]
+    },
+    {
+      "code": "NU1100",
+      "level": "Error",
+      "message": "Unable to resolve 'Microsoft.NET.Sdk.WebAssembly.Pack (>= 8.0.1)' for 'net8.0/browser-wasm'.",
+      "libraryId": "Microsoft.NET.Sdk.WebAssembly.Pack",
+      "targetGraphs": [
+        "net8.0/browser-wasm"
+      ]
+    },
+    {
+      "code": "NU1100",
+      "level": "Error",
+      "message": "Unable to resolve 'Microsoft.NETCore.App.Runtime.Mono.browser-wasm (= 8.0.1)' for 'net8.0'.",
+      "libraryId": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
+}
