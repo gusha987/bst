@@ -1,90 +1,39 @@
 {
   "version": 2,
-  "dgSpecHash": "kJ4iTkJuKs/cYvNT5aHhOlXKf9zAGECJNzicMms+5y/ScTWp60e0yy1OzNOvv3OCVrB9Sm+rWtNXLCa8qchMpw==",
-  "success": false,
-  "projectFilePath": "C:\\Users\\gusha\\SomehowClever\\SomehowClever.csproj",
-  "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "NU1100",
-      "level": "Error",
-      "message": "Unable to resolve 'Microsoft.AspNetCore.Components.WebAssembly (>= 8.0.1)' for 'net8.0'.",
-      "libraryId": "Microsoft.AspNetCore.Components.WebAssembly",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    },
-    {
-      "code": "NU1100",
-      "level": "Error",
-      "message": "Unable to resolve 'Microsoft.AspNetCore.Components.WebAssembly.DevServer (>= 8.0.1)' for 'net8.0'.",
-      "libraryId": "Microsoft.AspNetCore.Components.WebAssembly.DevServer",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    },
-    {
-      "code": "NU1100",
-      "level": "Error",
-      "message": "Unable to resolve 'Microsoft.NET.ILLink.Tasks (>= 8.0.1)' for 'net8.0'.",
-      "libraryId": "Microsoft.NET.ILLink.Tasks",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    },
-    {
-      "code": "NU1100",
-      "level": "Error",
-      "message": "Unable to resolve 'Microsoft.NET.Sdk.WebAssembly.Pack (>= 8.0.1)' for 'net8.0'.",
-      "libraryId": "Microsoft.NET.Sdk.WebAssembly.Pack",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    },
-    {
-      "code": "NU1100",
-      "level": "Error",
-      "message": "Unable to resolve 'Microsoft.AspNetCore.Components.WebAssembly (>= 8.0.1)' for 'net8.0/browser-wasm'.",
-      "libraryId": "Microsoft.AspNetCore.Components.WebAssembly",
-      "targetGraphs": [
-        "net8.0/browser-wasm"
-      ]
-    },
-    {
-      "code": "NU1100",
-      "level": "Error",
-      "message": "Unable to resolve 'Microsoft.AspNetCore.Components.WebAssembly.DevServer (>= 8.0.1)' for 'net8.0/browser-wasm'.",
-      "libraryId": "Microsoft.AspNetCore.Components.WebAssembly.DevServer",
-      "targetGraphs": [
-        "net8.0/browser-wasm"
-      ]
-    },
-    {
-      "code": "NU1100",
-      "level": "Error",
-      "message": "Unable to resolve 'Microsoft.NET.ILLink.Tasks (>= 8.0.1)' for 'net8.0/browser-wasm'.",
-      "libraryId": "Microsoft.NET.ILLink.Tasks",
-      "targetGraphs": [
-        "net8.0/browser-wasm"
-      ]
-    },
-    {
-      "code": "NU1100",
-      "level": "Error",
-      "message": "Unable to resolve 'Microsoft.NET.Sdk.WebAssembly.Pack (>= 8.0.1)' for 'net8.0/browser-wasm'.",
-      "libraryId": "Microsoft.NET.Sdk.WebAssembly.Pack",
-      "targetGraphs": [
-        "net8.0/browser-wasm"
-      ]
-    },
-    {
-      "code": "NU1100",
-      "level": "Error",
-      "message": "Unable to resolve 'Microsoft.NETCore.App.Runtime.Mono.browser-wasm (= 8.0.1)' for 'net8.0'.",
-      "libraryId": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  "dgSpecHash": "roWfQFDKoFk2Qt9yyXiu6kAcRI6Pdmmo/BkVdKa25iJf2VaELD4NWGm/PUwTLMZRDNEJ45OGOaRjfpK4PFhE1w==",
+  "success": true,
+  "projectFilePath": "C:\\ass\\bst\\bst.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\gusha\\.nuget\\packages\\microsoft.aspnetcore.authorization\\8.0.1\\microsoft.aspnetcore.authorization.8.0.1.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\microsoft.aspnetcore.components\\8.0.1\\microsoft.aspnetcore.components.8.0.1.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\8.0.1\\microsoft.aspnetcore.components.analyzers.8.0.1.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\8.0.1\\microsoft.aspnetcore.components.forms.8.0.1.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\microsoft.aspnetcore.components.web\\8.0.1\\microsoft.aspnetcore.components.web.8.0.1.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\8.0.1\\microsoft.aspnetcore.components.webassembly.8.0.1.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly.devserver\\8.0.1\\microsoft.aspnetcore.components.webassembly.devserver.8.0.1.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\microsoft.aspnetcore.metadata\\8.0.1\\microsoft.aspnetcore.metadata.8.0.1.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\microsoft.extensions.configuration\\8.0.0\\microsoft.extensions.configuration.8.0.0.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\microsoft.extensions.configuration.binder\\8.0.1\\microsoft.extensions.configuration.binder.8.0.1.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\8.0.0\\microsoft.extensions.configuration.fileextensions.8.0.0.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\microsoft.extensions.configuration.json\\8.0.0\\microsoft.extensions.configuration.json.8.0.0.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\8.0.0\\microsoft.extensions.fileproviders.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\8.0.0\\microsoft.extensions.fileproviders.physical.8.0.0.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\8.0.0\\microsoft.extensions.filesystemglobbing.8.0.0.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\microsoft.extensions.logging\\8.0.0\\microsoft.extensions.logging.8.0.0.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\microsoft.extensions.options\\8.0.1\\microsoft.extensions.options.8.0.1.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\microsoft.jsinterop\\8.0.1\\microsoft.jsinterop.8.0.1.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\microsoft.jsinterop.webassembly\\8.0.1\\microsoft.jsinterop.webassembly.8.0.1.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.1\\microsoft.net.illink.tasks.8.0.1.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\microsoft.net.sdk.webassembly.pack\\8.0.1\\microsoft.net.sdk.webassembly.pack.8.0.1.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\system.io.pipelines\\8.0.0\\system.io.pipelines.8.0.0.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512",
+    "C:\\Users\\gusha\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.1\\microsoft.netcore.app.runtime.mono.browser-wasm.8.0.1.nupkg.sha512"
+  ],
+  "logs": []
 }
