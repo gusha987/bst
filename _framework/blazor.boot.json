@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "bstproject",
   "resources": {
-    "hash": "sha256-gkMOYkcbAMlakn7XlPeL2Iak/KKS4rVDkPAyq7Couaw=",
+    "hash": "sha256-Jqdq23pQ0mZ+JycM4wtQ1UIu97KQdeP7CjClPRndzSA=",
     "jsModuleNative": {
       "dotnet.native.8.0.1.nh10dfsy8h.js": "sha256-0/zT4VaNGCA+pHb1kFPBvpg4SxIUr7P/pnheJknWyrQ="
     },
@@ -17,7 +17,7 @@
       "icudt_no_CJK.dat": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs="
     },
     "assembly": {
-      "bstproject.wasm": "sha256-mkCG39MAaUSeosv/51pFHH7zQZ7RbVTg2Vc9kWJ2MPw=",
+      "bstproject.wasm": "sha256-0HXq/i8HLlA800jqOPvauXrQXGKuUQEyD8+AlJeTSmg=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-FH2Qq1tZ5w5cA8ZReH0/rL2GxaIjA5uDOA6g4+RcHmY=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-mmo6S4AxiBcnKbs4b+7ObftqPCkIcLGiAv9gICT/5NY=",
       "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-d6tN87QrJstiTMcLaUtZ6TWiNHa8A74Suuzx95thRrE=",
