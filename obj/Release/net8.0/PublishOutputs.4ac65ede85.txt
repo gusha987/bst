@@ -1,0 +1,1 @@
+C:\Users\gusha\source\repos\bstproject\obj\Release\net8.0\browser-wasm\PubTmp\Out\web.config
