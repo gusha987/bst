@@ -1,4 +1,4 @@
-﻿<div class="dropdown" >
+﻿<div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="@isDropdownOpen.ToString().ToLower()" @onmouseover="ToggleDropdown" @onmouseleave="CloseDropdown">
         Sort By
     </button>
@@ -10,33 +10,37 @@
     </ul>
 </div>
 
-@if (SortedListItems != null)
+@if (SortedUserExercises != null)
 {
     <div class="row row-cols-1 row-cols-md-2 g-4">
-        @foreach (var item in SortedListItems)
+        @foreach (var userExercise in SortedUserExercises)
         {
-            <div class="col">
-                <div class="card mb-3">
-                    <a @onclick="() => UpdateLastUsed(item)">
-                        <img src="@item.Url" class="card-img-top" alt="@item.Name" />
-                    </a>
-                    <div class="card-body">
-                        <p>@item.Name</p>
-                        <button class="btn btn-primary me-1" @onclick="() => EditItem(item)">Edit</button>
-                        <button class="btn btn-danger" @onclick="() => DeleteItem(item)">Delete</button>
-                        <button class="btn btn-warning" @onclick="() => ToggleFavorite(item)">
-                            @if (item.IsFavorite)
-                            {
-                                <span>Unfavorite</span>
-                            }
-                            else
-                            {
-                                <span>Favorite</span>
-                            }
-                        </button>
+            var exercise = exercises.FirstOrDefault(e => e.Id == userExercise.ExerciseId);
+            if (exercise != null)
+            {
+                <div class="col">
+                    <div class="card mb-3">
+                        <a @onclick="() => UpdateLastUsed(userExercise)">
+                            <img src="@exercise.Url" class="card-img-top" alt="@exercise.Name" />
+                        </a>
+                        <div class="card-body">
+                            <p>@exercise.Name</p>
+                            <button class="btn btn-primary me-1" @onclick="() => EditItem(userExercise)">Edit</button>
+                            <button class="btn btn-danger" @onclick="() => DeleteItem(userExercise)">Delete</button>
+                            <button class="btn btn-warning" @onclick="() => ToggleFavorite(userExercise)">
+                                @if (userExercise.IsFavorite)
+                                {
+                                    <span>Unfavorite</span>
+                                }
+                                else
+                                {
+                                    <span>Favorite</span>
+                                }
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
         }
     </div>
 }
@@ -52,9 +56,12 @@
     }
 
     [Parameter]
+    public List<UserExercise> userExercises { get; set; }
+
+    [Parameter]
     public List<Exercise> exercises { get; set; }
 
-    public List<Exercise> SortedListItems { get; set; } 
+    public List<UserExercise> SortedUserExercises { get; set; }
 
     private SortOption currentSortOption = SortOption.LastUsed;
     private bool isDropdownOpen = false;
@@ -63,64 +70,68 @@
 
     protected override void OnParametersSet()
     {
-        // sorted lsit items with exercises
-        SortedListItems = exercises;
+        // Sort user exercises based on current sort option
+        SortList(currentSortOption);
     }
 
-    
     private void SortList(SortOption sortOption)
     {
         currentSortOption = sortOption;
 
-        // Sort by sorting options and logic
-        SortedListItems = sortOption switch
+        SortedUserExercises = sortOption switch
         {
-            SortOption.LastUsed => exercises.OrderByDescending(item => item.LastUsed).ToList(),
-            SortOption.LastModified => exercises.OrderByDescending(item => item.LastEdited).ToList(),
-            SortOption.Name => exercises.OrderBy(item => item.Name).ToList(),
-            SortOption.FavoritesFirst => exercises.OrderByDescending(item => item.IsFavorite).ToList(),
-            _ => SortedListItems
+            SortOption.LastUsed => userExercises.OrderByDescending(item => item.LastUsed).ToList(),
+            SortOption.LastModified => userExercises.OrderByDescending(item => item.LastEdited).ToList(),
+            SortOption.Name => userExercises.OrderBy(item => exercises.FirstOrDefault(e => e.Id == item.ExerciseId)?.Name).ToList(),
+            SortOption.FavoritesFirst => userExercises.OrderByDescending(item => item.IsFavorite).ToList(),
+            _ => SortedUserExercises
         };
 
-        
         StateHasChanged();
     }
 
-    //Edited function logic
-    private void EditItem(Exercise exercise)
+    // Edit user exercise
+    private void EditItem(UserExercise userExercise)
     {
-        Console.WriteLine($"Editing {exercise.Name}");
-        exercise.LastEdited = DateTime.Now;
-        Console.WriteLine($"Last edited now set to : {exercise.LastEdited}");
+        var exercise = exercises.FirstOrDefault(e => e.Id == userExercise.ExerciseId);
+        if (exercise != null)
+        {
+            Console.WriteLine($"Editing {exercise.Name}");
+            // Update last edited timestamp for the exercise
+            userExercise.LastEdited = DateTime.Now;
+            Console.WriteLine($"Last edited now set to : {userExercise.LastEdited}");
+        }
     }
 
-    // deleting an item
-    private void DeleteItem(Exercise exercise)
+    // Delete user exercise
+    private void DeleteItem(UserExercise userExercise)
     {
-        exercises.Remove(exercise);
+        // Remove user exercise from the list
+        userExercises.Remove(userExercise);
         // Update the sorted list after deleting the item
-        SortedListItems.Remove(exercise);
+        SortedUserExercises.Remove(userExercise);
     }
 
-    // Toggle favourite
-    private void ToggleFavorite(Exercise exercise)
+    // Toggle favorite status
+    private void ToggleFavorite(UserExercise userExercise)
     {
-        exercise.IsFavorite = !exercise.IsFavorite;
-        Console.WriteLine($"{exercise.Name} is favorited : {exercise.IsFavorite}");
+        userExercise.IsFavorite = !userExercise.IsFavorite;
+        Console.WriteLine($"{userExercise.ExerciseId} is favorited : {userExercise.IsFavorite}");
     }
 
-    // Last used on click
-    private void UpdateLastUsed(Exercise exercise)
+    // Update last used timestamp
+    private void UpdateLastUsed(UserExercise userExercise)
     {
-        exercise.LastUsed = DateTime.Now;
-        Console.WriteLine($"{exercise.Name} was last used : {exercise.LastUsed}");
+        userExercise.LastUsed = DateTime.Now;
+        Console.WriteLine($"{userExercise.ExerciseId} was last used : {userExercise.LastUsed}");
     }
 
     private void ToggleDropdown()
     {
         isDropdownOpen = !isDropdownOpen;
     }
-   private void KeepDropdownOpen()
+
+    private void KeepDropdownOpen()
     {
         isDropdownOpen = true;
     }

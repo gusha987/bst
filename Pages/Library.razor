@@ -4,42 +4,73 @@
 
 <h1>Your library!</h1>
 
-This is a library of your exercises.
+<div>
+    <label for="userSelect">Select User:</label>
+    <select id="userSelect" @onchange="HandleUserChange">
+        @foreach (var user in users)
+        {
+            <option value="@user.Id">@user.Username</option>
+        }
+    </select>
+</div>
 
-<ListItemGrid exercises="@exercises" />
-
-
-
-
+<ListItemGrid userExercises="@userExercises" exercises="@exercises" />
 
 @code {
     List<Exercise> exercises { get; set; } = new List<Exercise>();
+    List<User> users { get; set; } = new List<User>();
+    List<UserExercise> userExercises { get; set; }
+    int selectedUserId = 1; // Added to store the selected user's ID
+    
 
     protected override async Task OnInitializedAsync()
     {
-        exercises.Add(new Exercise(1, "run", "https://media.istockphoto.com/id/1441759606/photo/happy-sportswoman-with-earbuds-running-in-the-park.jpg?s=612x612&w=0&k=20&c=_RHiYpQFiZRxESWzCsr8k9SsOr-T-Qj3OcpINB1aVrg="));
-        exercises.Add(new Exercise(2, "sprint", "https://media.istockphoto.com/id/1283987832/photo/pacific-islander-woman-running-outdoors.jpg?s=612x612&w=0&k=20&c=2QmvLGawAbwyyNCDZXqcxHRAoH22UW4RZv5h1HbooQM="));
-        exercises.Add(new Exercise(3, "roll", "https://media.istockphoto.com/id/1097819346/vector/fitness-mat-roll-flat-line-icon-yoga-carpet-sign-thin-linear-logo-for-sport-equipment-store.jpg?s=612x612&w=0&k=20&c=XUpZqtMQ-heHljMO3lFf63mTz_xOUbfmYXjD-lI-XZI="));
-        exercises.Add(new Exercise(4, "sit-up", "https://blog-images-1.pharmeasy.in/2020/01/26182504/041.jpg"));
-        exercises.Add(new Exercise(5, "psuh-up", "https://t4.ftcdn.net/jpg/02/57/68/69/360_F_257686926_6PXryM3chOIpRiaorXWgmZhIAiKh9rR6.jpg"));
-        exercises.Add(new Exercise(6, "stretching", "https://t4.ftcdn.net/jpg/05/92/29/31/360_F_592293145_GwwDgjFW6s3I5QiKUKhUzRxdz9MwRgkP.jpg"));
-        exercises.Add(new Exercise(7, "jumping jacks", "https://media.istockphoto.com/photos/group-of-people-doing-jumping-jacks-in-gym-picture-id1135092368"));
-        exercises.Add(new Exercise(8, "burpees", "https://media.istockphoto.com/photos/young-woman-training-in-fitness-club-picture-id1141071089"));
-        exercises.Add(new Exercise(9, "lunges", "https://media.istockphoto.com/photos/young-woman-doing-lunges-during-her-workout-at-home-picture-id1285052436"));
-        exercises.Add(new Exercise(10, "bicycle crunches", "https://media.istockphoto.com/photos/fit-woman-doing-bicycle-crunches-exercise-on-the-floor-picture-id1301278021"));
-        exercises.Add(new Exercise(11, "plank", "https://media.istockphoto.com/photos/woman-doing-plank-exercise-on-mat-at-gym-picture-id1301585784"));
-        exercises.Add(new Exercise(12, "mountain climbers", "https://media.istockphoto.com/photos/mountain-climber-exercise-picture-id472773858"));
-        exercises.Add(new Exercise(13, "jump squats", "https://media.istockphoto.com/photos/young-woman-doing-jump-squats-outdoors-picture-id1292351402"));
-        exercises.Add(new Exercise(14, "box jumps", "https://media.istockphoto.com/photos/young-fit-man-jumping-on-box-picture-id1281952022"));
-        exercises.Add(new Exercise(15, "deadlifts", "https://media.istockphoto.com/photos/fit-man-lifting-barbell-in-gym-picture-id1281236976"));
-        exercises.Add(new Exercise(16, "bench press", "https://media.istockphoto.com/photos/strong-man-lifting-barbell-in-gym-picture-id1281234421"));
-        exercises.Add(new Exercise(17, "pull-ups", "https://media.istockphoto.com/photos/young-woman-doing-pull-ups-on-horizontal-bar-in-gym-picture-id1284741181"));
-        exercises.Add(new Exercise(18, "dumbbell curls", "https://media.istockphoto.com/photos/handsome-man-lifting-dumbbell-in-gym-picture-id1088576878"));
+        exercises.Add(new Exercise(1, "run", "https://media.istockphoto.com/id/1441759606/photo/happy-sportswoman-with-earbuds-running-in-the-park.jpg?s=612x612&w=0&k=20&c=_RHiYpQFiZRxESWzCsr8k9SsOr-T-Qj3OcpINB1aVrg=", 1, true));
+        exercises.Add(new Exercise(2, "sprint", "https://media.istockphoto.com/id/1283987832/photo/pacific-islander-woman-running-outdoors.jpg?s=612x612&w=0&k=20&c=2QmvLGawAbwyyNCDZXqcxHRAoH22UW4RZv5h1HbooQM=", 1, false));
+        exercises.Add(new Exercise(3, "roll", "https://media.istockphoto.com/id/1097819346/vector/fitness-mat-roll-flat-line-icon-yoga-carpet-sign-thin-linear-logo-for-sport-equipment-store.jpg?s=612x612&w=0&k=20&c=XUpZqtMQ-heHljMO3lFf63mTz_xOUbfmYXjD-lI-XZI=", 1, false));
+        exercises.Add(new Exercise(4, "sit-up", "https://blog-images-1.pharmeasy.in/2020/01/26182504/041.jpg", 1, false));
+        exercises.Add(new Exercise(5, "push-up", "https://t4.ftcdn.net/jpg/02/57/68/69/360_F_257686926_6PXryM3chOIpRiaorXWgmZhIAiKh9rR6.jpg", 1, false));
+        exercises.Add(new Exercise(6, "stretching", "https://t4.ftcdn.net/jpg/05/92/29/31/360_F_592293145_GwwDgjFW6s3I5QiKUKhUzRxdz9MwRgkP.jpg", 1, false));
+        exercises.Add(new Exercise(7, "jumping jacks", "https://www.wikihow.com/images/thumb/c/ce/Perform-Jumping-Jacks-Step-6-Version-4.jpg/v4-460px-Perform-Jumping-Jacks-Step-6-Version-4.jpg.webp", 1, false));
+        exercises.Add(new Exercise(8, "burpees", "https://cdn.shopify.com/s/files/1/1497/9682/files/1.How_to_Do_a_Burpee.jpg?v=1671883119", 1, false));
+        exercises.Add(new Exercise(9, "lunges", "https://hips.hearstapps.com/hmg-prod/images/jumping-lunges-1655394656.jpg?resize=980:*", 1, false));
+        exercises.Add(new Exercise(10, "bicycle crunches", "https://media1.popsugar-assets.com/files/thumbor/L9Bm-MlUoQkr4H1HmfxPdsDwvhQ=/fit-in/792x792/filters:format_auto():upscale()/2024/03/28/771/n/1922729/d0cfd4c60ed64788_PS23_Fitness_Workout_12_Move_08_Bicycle_Crunch.jpg", 2, false));
+        exercises.Add(new Exercise(11, "plank", "https://cdn.policyx.com/images/benefits-of-plank-exercise-main-banner.webp", 2, false));
+        exercises.Add(new Exercise(12, "mountain climbers", "https://rejuvage.com/wp-content/uploads/2019/07/iStock-957699448.jpg", 2, false));
+        exercises.Add(new Exercise(13, "jump squats", "https://media.istockphoto.com/id/1131508527/vector/exercise-guide-by-woman-doing-squat-jump-in-3-steps-in-side-view.jpg?s=612x612&w=0&k=20&c=08_5RXKlcd-R8OiX-cO7DYmSNJ2ubY4JZO-2JgmPklw=", 2, false));
+        exercises.Add(new Exercise(14, "box jumps", "https://experiencelife.lifetime.life/wp-content/uploads/2021/03/Box-Jump.jpg", 2, false));
+        exercises.Add(new Exercise(15, "deadlifts", "https://blogscdn.thehut.net/wp-content/uploads/sites/495/2018/10/25171220/Blog-Deadlifting-Male_1800x672_1200x672_acf_cropped.jpg", 2, false));
+        exercises.Add(new Exercise(16, "bench press", "https://www.inspireusafoundation.org/wp-content/uploads/2022/06/barbell-bench-press-benefits-1024x576.jpg", 2, false));
+        exercises.Add(new Exercise(17, "pull-ups", "https://anabolicaliens.com/cdn/shop/articles/199990.png?v=1645089103", 2, false));
+        exercises.Add(new Exercise(18, "dumbbell curls", "https://image.myupchar.com/8840/original/Standing_Dumbbell_Curl_ke_fayde__karne_ka_sahi_tarika__prakar__galtiyan_aur_sujhav.jpg", 2, false));
 
+        users.Add(new User(1, "user1"));
+        users.Add(new User(2, "user2"));
 
+        // Mocking current user (replace with actual logic to get current user)
+        User currentUser = users.FirstOrDefault(u => u.Id == selectedUserId);
 
+        if (currentUser != null)
+        {
+            // Create ExerciseManager instance for the current user
+            ExerciseManager exerciseManager = new ExerciseManager(exercises, currentUser);
 
-
+            // Generate UserExercise list for the current user
+            userExercises = exerciseManager.GenerateUserExercises();
+        }
     }
-  
+
+    void HandleUserChange(ChangeEventArgs e)
+    {
+        selectedUserId = Convert.ToInt32(e.Value);
+        // Find the selected user
+        User selectedUser = users.FirstOrDefault(u => u.Id == selectedUserId);
+        if (selectedUser != null)
+        {
+            // Create ExerciseManager instance for the selected user
+            ExerciseManager exerciseManager = new ExerciseManager(exercises, selectedUser);
+            // Generate UserExercise list for the selected user
+            userExercises = exerciseManager.GenerateUserExercises();
+        }
+    }
 }
