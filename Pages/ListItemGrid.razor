@@ -1,13 +1,13 @@
-﻿<div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" @onclick="ToggleDropdown" type="button" aria-haspopup="true" aria-expanded="@isDropdownOpen">
+﻿<div class="dropdown" >
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="@isDropdownOpen.ToString().ToLower()" @onmouseover="ToggleDropdown" @onmouseleave="CloseDropdown">
         Sort By
     </button>
-    <div class="@dropdownClass" aria-labelledby="dropdownMenuButton">
-        <button class="dropdown-item" @onclick="() => SortList(SortOption.LastUsed)">Last Used</button>
-        <button class="dropdown-item" @onclick="() => SortList(SortOption.LastModified)">Last Modified</button>
-        <button class="dropdown-item" @onclick="() => SortList(SortOption.Name)">Name</button>
-        <button class="dropdown-item" @onclick="() => SortList(SortOption.FavoritesFirst)">Favorites First</button>
-    </div>
+    <ul class="@dropdownClass" aria-labelledby="dropdownMenuButton" @onmouseover="KeepDropdownOpen" @onmouseleave="CloseDropdown">
+        <li><a class="dropdown-item" @onclick="() => SortList(SortOption.LastUsed)">Last Used</a></li>
+        <li><a class="dropdown-item" @onclick="() => SortList(SortOption.LastModified)">Last Modified</a></li>
+        <li><a class="dropdown-item" @onclick="() => SortList(SortOption.Name)">Name</a></li>
+        <li><a class="dropdown-item" @onclick="() => SortList(SortOption.FavoritesFirst)">Favorites First</a></li>
+    </ul>
 </div>
 
 @if (SortedListItems != null)
@@ -119,5 +119,14 @@
     private void ToggleDropdown()
     {
         isDropdownOpen = !isDropdownOpen;
+    }
+   private void KeepDropdownOpen()
+    {
+        isDropdownOpen = true;
+    }
+
+    private void CloseDropdown()
+    {
+        isDropdownOpen = false;
     }
 }
