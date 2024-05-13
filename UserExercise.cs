@@ -16,14 +16,14 @@ namespace bstproject
         
 
 
-        public UserExercise(int userId, int exerciseId)
+        public UserExercise(int userId, int exerciseId,DateTime edited, DateTime used, bool favo )
 
         {
             UserId = userId;
             ExerciseId = exerciseId;
-            LastEdited = DateTime.Now;
-            LastUsed = DateTime.Now;
-            IsFavorite = false;
+            LastEdited = edited;
+            LastUsed = used;
+            IsFavorite = favo;
 
         }
         

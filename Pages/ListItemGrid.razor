@@ -1,4 +1,4 @@
-﻿<div class="dropdown">
+﻿<div class="dropdown" style="padding: 10px;">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="@isDropdownOpen.ToString().ToLower()" @onmouseover="ToggleDropdown" @onmouseleave="CloseDropdown">
         Sort By
     </button>
@@ -13,30 +13,33 @@
 @if (SortedUserExercises != null)
 {
     <div class="row row-cols-1 row-cols-md-2 g-4">
-        @foreach (var userExercise in SortedUserExercises)
+        @foreach (var userExercise in SortedUserExercises.Where(ue => ue.UserId == selectedUserId))
         {
             var exercise = exercises.FirstOrDefault(e => e.Id == userExercise.ExerciseId);
             if (exercise != null)
             {
                 <div class="col">
-                    <div class="card mb-3">
+                    <div class="card mb-3 h-100">
                         <a @onclick="() => UpdateLastUsed(userExercise)">
                             <img src="@exercise.Url" class="card-img-top" alt="@exercise.Name" />
                         </a>
-                        <div class="card-body">
-                            <p>@exercise.Name</p>
-                            <button class="btn btn-primary me-1" @onclick="() => EditItem(userExercise)">Edit</button>
-                            <button class="btn btn-danger" @onclick="() => DeleteItem(userExercise)">Delete</button>
-                            <button class="btn btn-warning" @onclick="() => ToggleFavorite(userExercise)">
-                                @if (userExercise.IsFavorite)
-                                {
-                                    <span>Unfavorite</span>
-                                }
-                                else
-                                {
-                                    <span>Favorite</span>
-                                }
-                            </button>
+                        <div class="card-body d-flex flex-column">
+                            <!-- Add d-flex and flex-column to make body content fill the height -->
+                            <p class="flex-grow-1">@exercise.Name</p> <!-- Add flex-grow-1 to make the paragraph fill remaining space -->
+                            <div>
+                                <button class="btn btn-primary me-1" @onclick="() => EditItem(userExercise)">Edit</button>
+                                <button class="btn btn-danger" @onclick="() => DeleteItem(userExercise)">Delete</button>
+                                <button class="btn btn-warning" @onclick="() => ToggleFavorite(userExercise)">
+                                    @if (userExercise.IsFavorite)
+                                    {
+                                        <span>Unfavorite</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Favorite</span>
+                                    }
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -61,7 +64,10 @@
     [Parameter]
     public List<Exercise> exercises { get; set; }
 
-    public List<UserExercise> SortedUserExercises { get; set; }
+    [Parameter]
+    public int selectedUserId { get; set; }
+
+    private static List<UserExercise> SortedUserExercises { get; set; }
 
     private SortOption currentSortOption = SortOption.LastUsed;
     private bool isDropdownOpen = false;
