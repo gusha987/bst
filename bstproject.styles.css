@@ -5,12 +5,13 @@
     flex-direction: column;
 }
 
+
 main[b-1w7t2cp1u9] {
     flex: 1;
 }
 
 .sidebar[b-1w7t2cp1u9] {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    background-color: #262626;
 }
 
 .top-row[b-1w7t2cp1u9] {

@@ -1,6 +1,24 @@
+body {
+    background-color: #1F1F1F;
+}
+
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+.content-wrapper {
+    padding-left: 20%; 
+    padding-right: 20%; 
+}
+body {
+    background-color: #1F1F1F;
+}
+p,h1, label {
+    color: white;
+}
+.card {
+    background-color: #262626
+}
+
 
 h1:focus {
     outline: none;
